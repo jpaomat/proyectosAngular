@@ -1,92 +1,115 @@
 <div class="main">
-    <header id="home-programate">
-        <div class="dark-overlay">
-          <div class="home-inner">
-            <div class="">
-              <div class="row">
-                <div class="col-xs-6 col-lg-4 clear">
-                  <div class="card text-center ">
-                    <div class="card-body ">
-                      <h4>¿QUÉ ESPERAS PARA CUMPLIR TU SUEÑO?</h4>
-                      <p>Deja tus datos y nos comunicaremos contigo</p>
-                      <form (ngSubmit)="saveForm()" [formGroup]='registerForm' class=""  >
-                        <div class="form-row form-group">
-                          <div class="col-md-12 ">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo"
-                              formControlName="name" required>
-                            <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
-                              <div *ngIf="name.errors.required">
-                                Invalido
-                              </div>
-                            </div>
+  <header id="home-programate">
+    <div class="dark-overlay">
+      <div class="home-inner">
+        <div class="">
+          <div class="row">
+            <div class="col-xs-6 col-lg-4 clear">
+              <div class="card text-center ">
+                <div class="card-body ">
+                  <h4>¿QUÉ ESPERAS PARA CUMPLIR TU SUEÑO?</h4>
+                  <p>Deja tus datos y nos comunicaremos contigo</p>
+                  <form (ngSubmit)="saveForm()" [formGroup]='registerForm' class="">
+                    <div class="form-row form-group">
+                      <div class="col-md-12 ">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo"
+                          formControlName="name" required>
+                        <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty ||   name.touched)">
+                          <div *ngIf="name.errors.required">
+                            Invalido
                           </div>
                         </div>
-                        <div class="form-row form-group">
-                          <div class="form-group col-md-6 mb-3">
-                            <select id="identification" name="identification" class="form-control" formControlName="world"
-                              required>
-                              <option selected>Tipo de documento</option>
-                              <option>Cédula de ciudadanía</option>
-                              <option>Cédula de estranjería</option>
-                              <option>Registro civil</option>
-                              <option>Tarjeta de identidad</option>
-                            </select>
-                            <div class="invalid-feedback">Seleccione una opción, por favor.</div>
-                          </div>
-                          <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" id="numIdentification" name="numIdentification"
-                              placeholder="Numero de documento" formControlName="numIdentification" required>
-                            <div class="invalid-feedback">complete el campo, por favor.</div>
-                          </div>
-                        </div>
-      
-                        <div class="form-row form-group" id="form-react">
-                          <div class="form-group col-md-6 mb-3">
-                            <select id="world" name="world" class="form-control" formControlName="world" required>
-                              <option selected>Seleccione pais</option>
-                              <option *ngFor="let world of worlds; index as i ">
-                                {{world.name}}
-                              </option>
-                            </select>
-                            <div class="invalid-feedback">Seleccione una opción, por favor.</div>
-                          </div>
-                          <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" id="numCelphone" name="numCelphone"
-                              placeholder="Numero celular" formControlName="numCelphone" required>
-                            <div class="invalid-feedback">complete el campo, por favor.</div>
-                          </div>
-                        </div>
-      
-                        <div class="form-group">
-                          <div class="col-md-12 mb-3">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Correo electronico"
-                              formControlName="email" required>
-                            <div class="invalid-feedback">complete el campo, por favor.</div>
-                          </div>
-                        </div>
-      
-                        <div class="form-group form-check">
-                          <label class="form-check-label" for="remember">
-                            <input class="form-check-input" type="checkbox" id="remember" name="remember"
-                              formControlName="remember" required> Aceptar terminos y condiciones.
-                            <div class="invalid-feedback">Invalido</div>
-                          </label>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="submit" class="btn btn-primary">Enviar</button>
-                          
-                        </div>
-                      </form>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6 info ">
-                  <h1 id=""> Plan prográmate</h1>
-                  <p>Ahora tú planeas cuándo serás adjudicado para tu nuevo vehículo Chevrolet</p>
+                    <div class="form-row form-group">
+                      <div class="form-group col-md-6 mb-3">
+                        <select id="identification" name="identification" class="form-control" formControlName="identification"
+                          required>
+                          <option selected>Tipo de documento</option>
+                          <option>Cédula de ciudadanía</option>
+                          <option>Cédula de estranjería</option>
+                          <option>Registro civil</option>
+                          <option>Tarjeta de identidad</option>
+                        </select>
+                        <div class="alert alert-danger"
+                          *ngIf="identification.invalid && (identification.dirty ||   world.touched)">
+                          <div *ngIf="identification.errors.required">
+                            Invalido
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" id="numIdentification" name="numIdentification"
+                          placeholder="Numero documento" formControlName="numIdentification" required>
+                        <div class="alert alert-danger"
+                          *ngIf="numIdentification.invalid && (numIdentification.dirty ||   numIdentification.touched)">
+                          <div *ngIf="numIdentification.errors.required">
+                            Invalido
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row form-group" id="form-react">
+                      <div class="form-group col-md-6 mb-3">
+                        <select id="world" name="world" class="form-control" formControlName="world" required>
+                          <option selected>Seleccione pais</option>
+                          <option *ngFor="let world of worlds; index as i ">
+                            {{world.name}}
+                          </option>
+                        </select>
+                        <div class="alert alert-danger"
+                          *ngIf="world.invalid && (numCelphone.dirty ||   world.touched)">
+                          <div *ngIf="world.errors.required">
+                            Invalido
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" id="numCelphone" name="numCelphone"
+                          placeholder="Numero celular" formControlName="numCelphone" required>
+                        <div class="alert alert-danger"
+                          *ngIf="numCelphone.invalid && (numCelphone.dirty ||   numCelphone.touched)">
+                          <div *ngIf="numCelphone.errors.required">
+                            Invalido
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-12 mb-3">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Correo electronico"
+                          formControlName="email" required>
+                        <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty ||   numCelphone.touched)">
+                          <div *ngIf="email.errors.required">
+                            Invalido
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-check">
+                      <label class="form-check-label" for="remember">
+                        <input class="form-check-input" type="checkbox" id="remember" name="remember"
+                          formControlName="remember" required> Aceptar terminos y condiciones.
+                        <div class="invalid-feedback">Invalido</div>
+                      </label>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
+            <div class="col-md-6 info ">
+              <h1 id=""> Plan prográmate</h1>
+              <p>Ahora tú planeas cuándo serás adjudicado para tu nuevo vehículo Chevrolet</p>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 </div>

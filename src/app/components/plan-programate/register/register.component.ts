@@ -17,25 +17,34 @@ export class RegisterComponent implements OnInit {
   get name(){
     return this.registerForm.get('name');
   }
+  get identification(){
+    return this.registerForm.get('identification');
+  }
   get numIdentification(){
     return this.registerForm.get('numIdentification');
   }
+  get world(){
+    return this.registerForm.get('world');
+  }
   get numCelphone(){
-    return this.registerForm.get('numIdentification');
+    return this.registerForm.get('numCelphone');
+  }
+  get email(){
+    return this.registerForm.get('email');
   }
   registerForm = this.formBuilder.group({
     name: ['',{
-      validators:[Validators.required,Validators.pattern(/^[a-zA-Z_-]{6,18}$/)]
+      validators:[Validators.required,Validators.pattern("[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]+")]
     }],
     identification: ['', Validators.required],
     numIdentification: ['', {
-      validattor:[Validators.required, Validators.minLength(6), Validators.maxLength(10)]
+      validattor:[Validators.required, Validators.minLength(6), Validators.maxLength(10),Validators.pattern("[0-9]")]
     }],
     world: [this.worldsComplete, Validators.required],
     numCelphone: ['',{
       validators:[ Validators.required, Validators.minLength(10), Validators.maxLength(10)]
     }],
-    email: ['', Validators.required, Validators.email],
+    email: ['', [Validators.required, Validators.email,Validators.pattern("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]],
     remember: [true, Validators.required]
   });
 
